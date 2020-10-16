@@ -1,0 +1,21 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@rules_java//java:defs.bzl", "java_import")
+load("//:test.bzl", "test_toolchain")
+
+toolchain_type(name = "toolchain_type")
+
+test_toolchain(name = "toolchain_impl")
+
+toolchain(
+    name = "toolchain",
+    toolchain = ":toolchain_impl",
+    toolchain_type = "@test//:toolchain_type",
+    visibility = ["//visibility:public"],
+)
+
+java_import(
+    name = "test",
+    deps = ["@bazel_tools//src/main/protobuf:worker_protocol_java_proto"],
+    jars = [],
+)

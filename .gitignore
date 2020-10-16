@@ -1,0 +1,7 @@
+bazel-*
+*.swp
+*.idea
+.DS_store
+.bazel_cache
+.ijwb
+
