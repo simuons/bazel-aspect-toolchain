@@ -1,6 +1,7 @@
 
 def _test_aspect_impl(target, ctx):
     ctx.toolchains["@test//:toolchain_type"]
+    return []
 
 test_aspect = aspect(
     implementation = _test_aspect_impl,
